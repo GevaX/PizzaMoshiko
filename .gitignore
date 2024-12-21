@@ -1,0 +1,100 @@
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.rsuser
+*.userprefs
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+*.obj
+*.pdb
+*.ilk
+
+# Visual Studio cache and temporary files
+.vs/
+.vspscc
+.vssscc
+*.suo
+*.user
+*.ncb
+*.opendb
+*.sdf
+
+# Test results
+[Tt]est[Rr]esult*/
+nunit-*.xml
+
+# NuGet Packages
+*.nupkg
+**/packages/*
+*.nuget.props
+*.nuget.targets
+
+# ReSharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# Coverage tools
+*.coverage
+*.coveragexml
+*.dotCover
+coverage*.json
+
+# Publish outputs
+publish/
+*.publishsettings
+*.pubxml
+*.publishproj
+
+# Azure & cloud-related files
+PublishScripts/
+csx/
+*.build.csdef
+
+# Documentation and help files
+DocProject/buildhelp/
+DocProject/Help/*
+
+# Others
+node_modules/
+bower_components/
+clientbin/
+*.bak
+*.dbmdl
+
+# Visual Studio Code files
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+*.code-workspace
+.history/
+
+# Package management
+/paket/paket.exe
+paket-files/
+
+# Fody Weaver output
+FodyWeavers.xsd
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# JetBrains Rider
+.idea/
+*.sln.iml

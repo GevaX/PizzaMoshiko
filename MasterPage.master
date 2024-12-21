@@ -1,0 +1,35 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Pizza Moshiko</title>
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="styles.css" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <nav class="navbar">
+                <div class="navbar-container">
+                    <div class="logo">
+                        <a href="Default.aspx">
+                            <img src="assets/logo.svg" alt="Pizza Moshiko Logo" />
+                        </a>
+                    </div>
+                    <ul class="nav-links">
+                        <li><a href="Menu.aspx">Menu</a></li>
+                        <li><a href="About.aspx">About Us</a></li>
+                        <li><a href="Contact.aspx">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
