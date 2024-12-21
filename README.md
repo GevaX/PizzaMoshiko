@@ -1,6 +1,6 @@
 # Pizza Moshiko
 
-Welcome to **Pizza Moshiko**! This is a fictional pizzeria website developed as a final project for the **i-learn** web development course. The website is built using **ASP.NET** and provides a user-friendly interface for customers to view the menu, place orders, and learn more about the pizzeria.
+Welcome to **Pizza Moshiko**! This is a fictional pizzeria website developed as a final web development project for **i-learn**. The website is built using **ASP.NET** and provides a user-friendly interface for customers to view the menu, register, and learn more about the pizzeria.
 
 ## Pages
 
@@ -19,7 +19,7 @@ To run the website locally, follow these steps:
    ```bash
    git clone https://github.com/GevaX/PizzaMoshiko.git
 1. Open the project in Visual Studio (as Web Site).
-1. Build and run the application using Visual Studio’s built-in web server (IIS express).
+1. Build and run the application using Visual Studioâ€™s built-in web server (IIS express).
 ## File Structure
 - **assets**: Containg assets like images, logos and icons.
 - **Default, registration, gallery...aspx**: Pages of the website as described earlier.
