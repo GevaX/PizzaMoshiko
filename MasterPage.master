@@ -38,6 +38,7 @@
                 <a href="/tos" target="_blank" style="color: #fff; text-decoration: none;">Terms of service</a>
                 <!-- TODO: Add TOS -->
             </p>
+            <p>This website is open source, <a href="https://github.com/GevaX/PizzaMoshiko">View It On Github</a>🦅</p>
         </footer>
     </div>
     </form>

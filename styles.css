@@ -254,3 +254,8 @@ p {
 .button:hover {
     background-color: #008252;
 }
+
+a, a:visited {
+    text-decoration: none;
+    color: black;
+}
