@@ -182,8 +182,12 @@ p {
     text-align: center;
     background-color: deepskyblue;
     display: flex;
-    justify-content: right;
-    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.location-text {
+    margin-right: 60px;
 }
 
 .location h2 {
@@ -200,4 +204,35 @@ p {
 
 .location iframe {
     border-radius: 8px;
+}
+
+.cta {
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 20px 30px;
+}
+
+.cta h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.cta p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.order-now-btn {
+    background-color: #ff6600;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.order-now-btn:hover {
+    background-color: #e65c00;
 }

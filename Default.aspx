@@ -8,6 +8,11 @@
             <h1 class="heading">Pizza Moshiko🍕</h1>
             <p>Where every slice tells a story of passion, freshness, and tradition.</p>
         </div>
+        <div class="cta">
+            <h2>Ready to Order?</h2>
+            <p>Get your favorite pizza delivered right to your door in no time. Order now and enjoy!</p>
+            <a href="/order-now" class="order-now-btn">Order Now</a>
+        </div>
         <div class="feet">
             <div class="feature-row">
                 <div class="feature-box">
@@ -61,7 +66,7 @@
             </div>
         </div>
         <div class="location">
-            <div>
+            <div class="location-text">
                 <h2>Find Us Here</h2>
                 <p>Zikhron Ya'akov St 10, Petah Tikva, Israel</p>
             </div>
