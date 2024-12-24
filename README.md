@@ -1,4 +1,15 @@
-# Pizza Moshiko
+<br />
+<div align="center">
+  <a href="https://github.com/GevaX/PizzaMoshiko">
+    <img src="assets/logo.svg" alt="Logo" width="300" height="100">
+  </a>
+  <p align="center">
+    Where every slice tells a story of passion, freshness, and tradition.
+    <br />
+  </p>
+</div>
+
+# About the project
 
 Welcome to **Pizza Moshiko**! This is a fictional pizzeria website developed as a final web development project for **i-learn**. The website is built using **ASP.NET** and provides a user-friendly interface for customers to view the menu, register, and learn more about the pizzeria.
 
