@@ -21,14 +21,24 @@
                         </a>
                     </div>
                     <ul class="nav-links">
-                        <li><a href="Menu.aspx">Menu</a></li>
                         <li><a href="About.aspx">About Us</a></li>
+                        <li><a href="Gallery.aspx">Gallery</a></li>
                         <li><a href="Contact.aspx">Contact</a></li>
                     </ul>
+                    <a class="button" href="Register.aspx">Register</a>
                 </div>
             </nav>
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
+        <footer style="background-color: #14130e; color: #fff; padding: 20px; text-align: center;">
+            <p>&copy; 2024 Pizza Moshiko. All rights reserved.</p>
+            <p>
+                <a href="/about" style="color: #fff; text-decoration: none;">About</a> |
+                <a href="/contact" style="color: #fff; text-decoration: none;">Contact</a> |
+                <a href="/tos" target="_blank" style="color: #fff; text-decoration: none;">Terms of service</a>
+                <!-- TODO: Add TOS -->
+            </p>
+        </footer>
     </div>
     </form>
 </body>
