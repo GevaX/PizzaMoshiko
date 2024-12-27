@@ -255,6 +255,6 @@ p {
     background-color: #008252;
 }
 
-a, a:visited {
+.git, .git:visited {
     color: blue;
 }
