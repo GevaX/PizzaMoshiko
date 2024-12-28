@@ -259,3 +259,46 @@ p {
 .git, .git:visited {
     color: blue;
 }
+
+.about-slogan {
+    text-align: center;
+    margin: 50px auto;
+    font-family: Georgia, serif;
+    font: 900;
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slogan-text {
+    font-size: 2.5rem;
+    font-style: italic;
+    line-height: 1.5;
+    position: relative;
+    display: inline-block;
+    margin: 0;
+}
+
+.quote-mark {
+    font-size: 5rem;
+    color: #F3A712;
+    position: absolute;
+}
+
+.quote-mark.start {
+    top: -30px;
+    left: -25px;
+}
+
+.quote-mark.end {
+    bottom: -80px;
+    right: -20px;
+}
+
+.slogan-description {
+    font-size: 1.2rem;
+    color: white;
+    max-width: 600px;
+    margin: 20px auto;
+}
