@@ -528,3 +528,62 @@ input[type="reset"]:hover {
 .toppings-container {
     margin-bottom: 8px;
 }
+
+.gallery-page {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+.gallery-page .heading {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #e63946;
+}
+
+.gallery-page .description {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.gallery-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.gallery-item h3 {
+    font-size: 1.5em;
+    margin: 15px 0 10px;
+    color: #2a9d8f;
+}
+
+.gallery-item p {
+    font-size: 1em;
+    margin: 0 15px 15px;
+    color: #555;
+}
