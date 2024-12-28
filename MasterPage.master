@@ -33,8 +33,8 @@
         <footer style="background-color: #14130e; color: #fff; padding: 20px; text-align: center;">
             <p>&copy; 2024 Pizza Moshiko. All rights reserved.</p>
             <p>
-                <a href="/about" style="color: #a8a8a8; text-decoration: none;">About</a> |
-                <a href="/contact" style="color: #a8a8a8; text-decoration: none;">Contact</a> |
+                <a href="/about.aspx" style="color: #a8a8a8; text-decoration: none;">About</a> |
+                <a href="/contact.aspx" style="color: #a8a8a8; text-decoration: none;">Contact</a> |
                 <a href="/assets/docs/Terms of Service.pdf" target="_blank" style="color: #a8a8a8; text-decoration: none;">Terms of service</a>
             </p>
             <p>This website is open source, <a class="git" href="https://github.com/GevaX/PizzaMoshiko" target="_blank">View It On Github</a>🦅</p>
