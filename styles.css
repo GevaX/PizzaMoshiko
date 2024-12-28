@@ -303,6 +303,27 @@ p {
     margin: 20px auto;
 }
 
+.our-story {
+    padding: 30px;
+    background-color: #7C7871;
+}
+
+.our-story p {
+    max-width: 1000px;
+    margin-right: 370px;
+}
+
+.our-story div {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.our-story img {
+    height: 300px;
+}
+
 .our-philosophy {
     background-color: #c4bdaf;
     padding: 30px;
@@ -417,4 +438,93 @@ p {
     font-size: 16px;
     color: #2c3e50;
     line-height: 1.5;
+}
+
+.reg {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: white;
+}
+
+.container {
+    background-color: #d91a33;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    margin: 50px;
+}
+
+.container h1 {
+    color: #333;
+    text-align: center;
+    color: white;
+}
+
+.container p {
+    color: #555;
+    margin-bottom: 10px;
+    color: white;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    color: white;
+    font-weight: bold;
+    margin: 10px 0 5px;
+}
+
+input[type="text"], input[type="password"] {
+    padding: 8px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+input[type="radio"] {
+    margin-right: 8px;
+}
+
+.method label, .toppings-container label {
+    font-weight: normal;
+}
+
+.bold {
+    font-weight: bold !important;
+}
+
+input[type="submit"], input[type="reset"] {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+input[type="reset"] {
+    background-color: yellow;
+    color: black;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+input[type="reset"]:hover {
+    background-color: #d32f2f;
+}
+
+.toppings-container {
+    margin-bottom: 8px;
 }

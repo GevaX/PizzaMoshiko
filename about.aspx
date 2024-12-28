@@ -16,7 +16,55 @@
         </div>
         <img src="assets/img/store-front.png" />
     </div>
-    
+    <section class="our-story">
+        <h2>Our story</h2>
+        <div>
+            <p>
+                Moshiko’s journey began in a small village nestled on the outskirts of Petah Tikva, where the aroma of fresh bread baking in the family oven filled his childhood home. 
+                As a young boy, Moshiko spent countless hours in the kitchen, watching his grandmother knead dough with care and precision. She would often share stories of their family’s culinary heritage, 
+                passed down through generations. It was during these formative years that Moshiko discovered his love for the art of cooking, a passion that would eventually lead him to pizza.
+            </p>
+            <img src="assets/img/os1.png" />
+        </div>
+        <div>
+            <p>
+                As a teenager, Moshiko took his first job at a neighborhood pizzeria. 
+                While others viewed it as just a summer gig, he immersed himself in every aspect of pizza-making, 
+                from crafting the perfect dough to experimenting with sauces. 
+                It was here that he realized pizza wasn’t just food—it was a canvas for creativity. 
+                His dedication and curiosity set him apart, earning him the nickname “Little Maestro” among his coworkers.
+            </p>
+            <img src="assets/img/os2.png" />
+        </div>
+        <div>
+            <p>
+                In his early twenties, Moshiko took a bold leap of faith, 
+                traveling to Naples, Italy—the birthplace of pizza. 
+                There, he trained under master pizzaiolos, learning the secrets of authentic Neapolitan pizza. 
+                Long nights spent perfecting the delicate balance between a crisp crust and a tender center became his new normal. 
+                Yet, Moshiko didn’t just learn; he absorbed the passion and philosophy of Italian pizza-making, 
+                which emphasized love and respect for the ingredients.
+            </p>
+            <img src="assets/img/os3.png" />
+        </div>
+        <div>
+            <p>
+                When Moshiko returned to Petah Tikva, he was determined to share his vision of what pizza could be. 
+                In 2010, he opened Pizza Moshiko, starting with a small wood-fired oven and a handful of recipes inspired by his travels and childhood memories. 
+                Word quickly spread about his pizzas, which combined the authenticity of Naples with a local twist. 
+                The restaurant became a gathering spot for friends, families, and food lovers.
+            </p>
+            <img src="assets/img/os4.png" />
+        </div>
+        <div style="justify-content: center; align-content: center;">
+            <p style="font-style: italic;">
+                Over the years, Pizza Moshiko has grown, but the heart of the business remains the same: 
+                a dedication to quality, community, and innovation. Each pizza tells a story of hard work, tradition, 
+                and the pursuit of excellence. Moshiko’s dream of creating a place where people can come together over a 
+                perfect slice has become a reality, and it all started with a boy in a village, inspired by the aroma of his grandmother’s kitchen.
+            </p>
+        </div>
+    </section>
     <section class="our-philosophy">
         <div>
             <h2>Our Philosophy</h2>
