@@ -15,7 +15,10 @@ Welcome to **Pizza Moshiko**! This is a fictional pizzeria website developed as 
 
 ## Pages
 
-- **Homepage**: A clean page containing: hero, features of the pizzeria, special offewrs, consumer testimonies and location.
+- **Home Page (Default.aspx)**: A clean page containing: hero, features of the pizzeria, special offewrs, consumer testimonies and location.
+- **About (about.asox)**: A page telling about the pizzeria: her story, philosophy, what sets her apart and the teem.
+- **Gallery (gallery.aspx)**: Gallery of images of pizzas that Pizza Moshiko makes such as Margherita, Pepperoni, Veggie Supreme etc.
+- **Register (register.aspx)**: A page allowing registeratiom to the pizzeria website using a POST form.
 
 ## Technologies Used
 
