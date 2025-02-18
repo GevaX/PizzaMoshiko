@@ -33,14 +33,7 @@
                   <label for="pizza">Pizza</label>
                 </div>
                 <label for="age">Select Age:</label>
-                <select id="age" name="age">
-                  <option value="1to13">1-13</option>
-                  <option value="13to18">13-18</option>
-                  <option value="19to30">19-30</option>
-                  <option value="31to45">31-45</option>
-                  <option value="46to60">46-60</option>
-                  <option value="61plus">61 and above</option>
-                </select> <br />
+                <input type="number" id="age" name="age" min="1" max="120" placeholder="Enter your age" required /> <br />
                 <label for="topping">Favorite Topping:</label>
                 <input type="text" id="topping" name="topping" placeholder="Yes, even pineapple is acceptable!">
 
@@ -66,7 +59,7 @@
                   <option value="spicy">Spicy</option>
                   <option value="fire">Fire in My Mouth!</option>
                 </select> <br />
-                <input type="submit" value="Submit"> <br />
+                <input type="submit" name="submit" value="Submit"> <br />
                 <input type="reset" value="Reset">
             </form>
         </div>

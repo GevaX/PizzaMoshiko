@@ -480,7 +480,7 @@ label {
     margin: 10px 0 5px;
 }
 
-input[type="text"], input[type="password"] {
+input[type="text"], input[type="password"], input[type="email"] {
     padding: 8px;
     width: 100%;
     border: 1px solid #ddd;
