@@ -587,3 +587,51 @@ input[type="reset"]:hover {
     margin: 0 15px 15px;
     color: #555;
 }
+
+.mtable table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+}
+
+.mtable th, .mtable td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+.mtable th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.mtable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.mtable tr:nth-child(odd) {
+    background-color: #ddd;
+}
+
+.mtable td:nth-child(4), .mtable td:nth-child(5) {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    position: relative;
+    transition: max-width 0.3s ease;
+}
+
+.mtable td:nth-child(4):hover, .mtable td:nth-child(5):hover {
+    max-width: 500px;
+    white-space: normal;
+    background-color: #f1f1f1;
+    z-index: 1;
+}
+
+.mtable td:nth-child(4):hover,
+.mtable td:nth-child(5):hover {
+    display: block;
+    position: relative;
+}

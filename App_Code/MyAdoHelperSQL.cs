@@ -37,7 +37,7 @@ public class MyAdoHelper
         //                     path +
         //                     ";Integrated Security=True;User Instance=True";
 
-        string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=F:\Codes\PizzaMoshiko\App_Data\RegistrationDB.mdf;Integrated Security=True;";
+        string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True;";
         // Changed connString to work for only PizzaMoshiko Database
 
         // string connString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True";
@@ -120,27 +120,41 @@ public class MyAdoHelper
         conn.Close();
     }
 
-    public static string printDataTable(string fileName, string sql)//הפעולה מקבלת שם קובץ ומשפט בחירת נתון ומחזירה אמת אם הנתונים קיימים ושקר אחרת
+    public static string printDataTable(string fileName, string sql)
     {
-        
-       
         DataTable dt = ExecuteDataTable(fileName, sql);
-       
+
+        if (dt == null || dt.Rows.Count == 0)
+        {
+            return "No data available.";
+        }
+
         string printStr = "<table border='1'>";
-        
+
+        // Add column headers
+        printStr += "<tr>";
+        foreach (DataColumn column in dt.Columns)
+        {
+            printStr += "<th>" + column.ColumnName + "</th>";
+        }
+        printStr += "</tr>";
+
+        // Add data rows
         foreach (DataRow row in dt.Rows)
         {
             printStr += "<tr>";
             foreach (object myItemArray in row.ItemArray)
             {
-                printStr += "<td>" + myItemArray.ToString() +"</td>";
+                printStr += "<td>" + myItemArray.ToString() + "</td>";
             }
             printStr += "</tr>";
         }
+
         printStr += "</table>";
-        
+
         return printStr;
     }
+
 
 
 
