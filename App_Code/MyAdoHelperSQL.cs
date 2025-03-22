@@ -65,6 +65,28 @@ public class MyAdoHelper
       
     }
 
+    public static object GetFieldValue(string fileName, string sql)
+    {
+        SqlConnection conn = ConnectToDb(fileName);
+        conn.Open();
+        SqlCommand com = new SqlCommand(sql, conn);
+        SqlDataReader reader = com.ExecuteReader();
+
+        if (reader.Read()) // Check if there is at least one row
+        {
+            // Assuming you want the first field (column) in the row
+            object fieldValue = reader.GetValue(0); // 0 represents the first field (column)
+            conn.Close();
+            return fieldValue;
+        }
+        else
+        {
+            conn.Close();
+            return null; // No rows found
+        }
+    }
+
+
 
     /// <summary>
     /// To Execute update / insert / delete queries

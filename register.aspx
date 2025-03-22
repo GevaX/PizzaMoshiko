@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div class="reg">
+    <div class="form">
         <div style="margin-right: 300px; margin-left: 100px">
             <h1>Do you love pizza? 🍕</h1>
             <p style="max-width: 500px;">Register now for the fast-growing pizza empire of Pizza Moshiko built by the master pizzaiolo moshiko now, and join a comunity of around 400 pizza lovers located at the streets of Petah Tikva.</p>
@@ -62,6 +62,7 @@
                 <input type="submit" name="submit" value="Submit"> <br />
                 <input type="reset" value="Reset">
             </form>
+            <p>Already have an account? <a href="login.aspx">Sign In</a></p> 
         </div>
     </div>
     
