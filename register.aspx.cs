@@ -38,6 +38,7 @@ public partial class register : System.Web.UI.Page
 
             if (rowsAffected > 0)
             {
+                Session["userName"] = username;
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Registered successfully!'); window.location='Default.aspx';", true);
             }
             else

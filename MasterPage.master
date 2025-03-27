@@ -10,25 +10,54 @@
     <link href="https://fonts.googleapis.com/css2?family=Heebo&display=swap" rel="stylesheet">
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
+    <script>
+         function toggleDropdown() {
+             var dropdown = document.getElementById("accountDropdown");
+             // Toggle the display property
+             if (dropdown.style.display === "block") {
+                 dropdown.style.display = "none";
+             } else {
+                 dropdown.style.display = "block";
+             }
+         }
+     </script>
 </head>
 <body>
     <form id="form1" runat="server">
     <div>
         <nav class="navbar">
-                <div class="navbar-container">
-                    <div class="logo">
-                        <a href="Default.aspx">
-                            <img src="assets/logo.svg" alt="Pizza Moshiko Logo" />
-                        </a>
-                    </div>
-                    <ul class="nav-links">
-                        <li><a href="About.aspx">About Us</a></li>
-                        <li><a href="Gallery.aspx">Gallery</a></li>
-                        <li><a href="Contact.aspx">Contact</a></li>
-                    </ul>
-                    <a class="button" href="Register.aspx">Register</a>
+            <div class="navbar-container">
+                <div class="logo">
+                    <a href="Default.aspx">
+                        <img src="assets/logo.svg" alt="Pizza Moshiko Logo" />
+                    </a>
                 </div>
-            </nav>
+                <ul class="nav-links">
+                    <li><a href="About.aspx">About Us</a></li>
+                    <li><a href="Gallery.aspx">Gallery</a></li>
+                    <li><a href="Contact.aspx">Contact</a></li>
+                    <% if ((bool)Session["isManager"] == true)
+                        {
+                            Response.Write("<li><a href='ManagerPage.aspx'>ManagerPage</a></li>");
+                        } %>
+                </ul>
+                <% if (Session["userName"] == null) { %>
+                <div class="auth-buttons">
+                    <a class="login" href="Login.aspx">Login</a>
+                    <a class="register" href="Register.aspx">Register</a>
+                </div>
+                <% } else { %>
+                <a href="#" class="account-icon" id="accountIcon" onclick="toggleDropdown()">
+                    <img src="assets/img/account-svgrepo-com.svg" width="50px" style="margin-left: 10px"/>
+                </a>
+                <!-- Dropdown Menu -->
+                <div id="accountDropdown" class="account-dropdown">
+                    <p id="username">Username: <%=Session["userName"] %></p>
+                    <a href="SignOut.aspx" id="signOutLink" style="color: red;">Sign Out</a>
+                </div>
+                <% } %>
+            </div>
+        </nav>
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
         <footer style="background-color: #14130e; color: #fff; padding: 20px; text-align: center;">

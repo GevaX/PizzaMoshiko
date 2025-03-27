@@ -24,7 +24,15 @@ public partial class login : System.Web.UI.Page
 
             if (PasswordHelper.VerifyPassword(enteredPassword,storedHash,storedSalt))
             {
-                msg = "Login scssesful!";
+                sql = "SELECT username FROM Users WHERE email = '" + email + "'";
+                string username = (string)MyAdoHelper.GetFieldValue(fileName, sql);
+                sql = "SELECT isManager FROM Users WHERE email = '" + email + "'";
+                if ((bool)MyAdoHelper.GetFieldValue(fileName, sql) == true)
+                {
+                    Session["isManager"] = true;
+                }
+                Session["userName"] = username;
+                Response.Redirect("Default.aspx");
             }
             else
             {
