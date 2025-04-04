@@ -34,16 +34,32 @@ public partial class register : System.Web.UI.Page
             string sql = "INSERT INTO Users(username, email, password_hash, salt, fname, lname, gender, age, favorite_topping, crust_preference, cheese_level, spicy_level) " +
              "VALUES('" + username + "', '" + email + "', '" + hashedPassword + "', '" + salt + "', '" + firstName + "', '" + lastName + "', '" + gender + "', " + age + ", '" + topping + "', '" + crust + "', '" + cheese + "', '" + spicy + "')";
             string fileName = "Database.mdf";
-            int rowsAffected = MyAdoHelper.RowsAffected(fileName, sql);
 
-            if (rowsAffected > 0)
+            try
             {
-                Session["userName"] = username;
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Registered successfully!'); window.location='Default.aspx';", true);
+                int rowsAffected = MyAdoHelper.RowsAffected(fileName, sql);
+
+                if (rowsAffected > 0)
+                {
+                    Session["userName"] = username;
+                    // Show success popup
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "successPopup",
+                        "showPopup('Success', 'Your registered successfully!', 'success');", true);
+                }
+                else
+                {
+                    // Show failure popup if no rows were affected
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "failurePopup",
+                        "showPopup('Error', 'Failed to create account. Please try again.', 'error');", true);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Registration failed. Please try again.');", true);
+                Console.WriteLine("Error: " + ex.Message);
+
+                // Show a failure popup with the error message
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "failurePopup",
+                    "showPopup('Error', 'An unexpected error occurred: " + ex.Message + "', 'error');", true);
             }
         }
     }

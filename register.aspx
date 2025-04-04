@@ -109,6 +109,31 @@
             <p>Already have an account? <a href="login.aspx">Sign In</a></p> 
         </div>
     </div>
-    
+    <div id="popupOverlay" class="popup-overlay">
+         <div id="popupContent" class="popup-content">
+             <h3 id="popupTitle" class="popup-title">Title</h3>
+             <p id="popupMessage" class="popup-message">Message</p>
+             <button id="popupButton" class="popup-button" onclick="closePopup()">OK</button>
+         </div>
+     </div>
+    <script>
+        function showPopup(title, message, type) {
+            document.getElementById('popupTitle').innerText = title;
+            document.getElementById('popupMessage').innerText = message;
+
+            const popupContent = document.getElementById('popupContent');
+            popupContent.className = 'popup-content ' + type;
+
+            document.getElementById('popupOverlay').style.display = 'flex';
+        }
+
+        function closePopup() {
+            document.getElementById('popupOverlay').style.display = 'none';
+
+            if (document.getElementById('popupContent').classList.contains('success')) {
+                window.location.href = 'Default.aspx';
+            }
+        }
+    </script>
 </asp:Content>
 

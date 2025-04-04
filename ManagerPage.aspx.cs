@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
-using System.Web.Helpers;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -17,8 +17,12 @@ public partial class ManagerPage : System.Web.UI.Page
     {
         cMsg = (string)Application["msg"];
         string fileName = "Database.mdf";
+
+        // User List
         sql = "SELECT * FROM Users";
         userList = MyAdoHelper.printUserTable(fileName, sql);
+
+        // Order list
         sql = "SELECT * FROM Orders";
         orderList = MyAdoHelper.printDataTable(fileName, sql);
 
