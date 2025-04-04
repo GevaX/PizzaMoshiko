@@ -33,7 +33,7 @@ public partial class register : System.Web.UI.Page
 
             string sql = "INSERT INTO Users(username, email, password_hash, salt, fname, lname, gender, age, favorite_topping, crust_preference, cheese_level, spicy_level) " +
              "VALUES('" + username + "', '" + email + "', '" + hashedPassword + "', '" + salt + "', '" + firstName + "', '" + lastName + "', '" + gender + "', " + age + ", '" + topping + "', '" + crust + "', '" + cheese + "', '" + spicy + "')";
-            string fileName = "RegistrationDB.mdf";
+            string fileName = "Database.mdf";
             int rowsAffected = MyAdoHelper.RowsAffected(fileName, sql);
 
             if (rowsAffected > 0)

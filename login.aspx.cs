@@ -16,7 +16,7 @@ public partial class login : System.Web.UI.Page
             string email = Request.Form["email"];
             string enteredPassword = Request.Form["password"];
 
-            string fileName = "RegistrationDB.mdf";
+            string fileName = "Database.mdf";
             string sql = "SELECT password_hash FROM Users WHERE email = '" + email +"'";
             string storedHash = (string)MyAdoHelper.GetFieldValue(fileName, sql);
             sql = "SELECT salt FROM Users WHERE email = '" + email + "'";

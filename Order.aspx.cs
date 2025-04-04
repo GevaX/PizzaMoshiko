@@ -23,7 +23,7 @@ public partial class Order : System.Web.UI.Page
 
             string sql = "INSERT INTO Orders (UserName, PizzaType, Size, ExtraToppings, Quantity, DeliveryMethod, Address, PaymentMethod, OrderDate) " +
              "VALUES('" + userName + "', '" + pizzaType + "', '" + size + "', '" + extraToppings + "', '" + quantity + "', '" + deliveryMethod + "', '" + address + "', '" + paymentMethod + "', '" + orderDate + "')";
-            string fileName = "RegistrationDB.mdf";
+            string fileName = "Database.mdf";
             int rowsAffected = MyAdoHelper.RowsAffected(fileName, sql);
 
             if (rowsAffected > 0)

@@ -15,7 +15,7 @@ public partial class reset : System.Web.UI.Page
         string password = Request.Form["password"];
 
         string sql = "SELECT * FROM Users WHERE email = '" + email + "' and username = '" + username + "'";
-        string fileName = "RegistrationDB.mdf";
+        string fileName = "Database.mdf";
         if (MyAdoHelper.IsExist(fileName,sql)) {
             string salt = PasswordHelper.GenerateSalt();
             string hashedPassword = PasswordHelper.HashPassword(password, salt);

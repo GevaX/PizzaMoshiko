@@ -16,7 +16,7 @@ public partial class ManagerPage : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         cMsg = (string)Application["msg"];
-        string fileName = "RegistrationDB.mdf";
+        string fileName = "Database.mdf";
         sql = "SELECT * FROM Users";
         userList = MyAdoHelper.printUserTable(fileName, sql);
         sql = "SELECT * FROM Orders";

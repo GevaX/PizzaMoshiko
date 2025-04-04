@@ -8,7 +8,7 @@ public partial class checkUser : System.Web.UI.Page
     {
         string username = Request.QueryString["username"];
         string email = Request.QueryString["email"];
-        string fileName = "RegistrationDB.mdf";
+        string fileName = "Database.mdf";
 
         string sql = "";
         if (!string.IsNullOrEmpty(username))
