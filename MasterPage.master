@@ -11,16 +11,16 @@
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
     <script>
-         function toggleDropdown() {
-             var dropdown = document.getElementById("accountDropdown");
-             // Toggle the display property
-             if (dropdown.style.display === "block") {
-                 dropdown.style.display = "none";
-             } else {
-                 dropdown.style.display = "block";
-             }
-         }
-     </script>
+        function toggleDropdown() {
+            var dropdown = document.getElementById("accountDropdown");
+            // Toggle the display property
+            if (dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            } else {
+                dropdown.style.display = "block";
+            }
+        }
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -33,6 +33,7 @@
                     </a>
                 </div>
                 <ul class="nav-links">
+                    <li><a href="Order.aspx">Order</a></li>
                     <li><a href="About.aspx">About Us</a></li>
                     <li><a href="Gallery.aspx">Gallery</a></li>
                     <li><a href="Contact.aspx">Contact</a></li>
@@ -58,6 +59,11 @@
                 <% } %>
             </div>
         </nav>
+        <% if (Application["msg"] != "") {%>
+        <div class="msg-container">
+            <p>Message from Moshiko: "<%=msg %>"</p>
+        </div>
+        <%} %>
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
         <footer style="background-color: #14130e; color: #fff; padding: 20px; text-align: center;">

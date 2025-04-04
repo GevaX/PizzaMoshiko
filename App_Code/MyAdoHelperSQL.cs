@@ -177,7 +177,46 @@ public class MyAdoHelper
         return printStr;
     }
 
+    public static string printUserTable(string fileName, string sql)
+    {
+        DataTable dt = ExecuteDataTable(fileName, sql);
 
+        if (dt == null || dt.Rows.Count == 0)
+        {
+            return "No data available.";
+        }
+
+        string printStr = "<table border='1'>";
+
+        // Add column headers
+        printStr += "<tr>";
+        printStr += "<th>Action</th>";
+        foreach (DataColumn column in dt.Columns)
+        {
+            printStr += "<th>" + column.ColumnName + "</th>";
+        }
+        printStr += "</tr>";
+
+        // Add data rows
+        foreach (DataRow row in dt.Rows)
+        {
+            printStr += "<tr>";
+            int userId = (int)row["id"];
+            printStr += "<td><form method='post' action='/'><input type='submit' class='delete' name='deleteacc' value='Delete' />" +
+                       "<input type='hidden' name='id' value='" + userId + "' />" +
+                      "</form></td>";
+
+            foreach (object myItemArray in row.ItemArray)
+            {
+                printStr += "<td>" + myItemArray.ToString() + "</td>";
+            }
+            printStr += "</tr>";
+        }
+
+        printStr += "</table>";
+
+        return printStr;
+    }
 
 
 }

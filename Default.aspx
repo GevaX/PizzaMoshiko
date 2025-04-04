@@ -11,7 +11,7 @@
         <div class="cta">
             <h2>Ready to Order?</h2>
             <p>Get your favorite pizza delivered right to your door in no time. Order now and enjoy!</p>
-            <a href="/order-now" class="order-now-btn">Order Now</a>
+            <a href="Order.aspx" class="order-now-btn">Order Now</a>
         </div>
         <div class="feet">
             <div class="feature-row">

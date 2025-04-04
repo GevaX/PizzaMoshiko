@@ -6,8 +6,19 @@
     <%if ((bool)Session["isManager"] == true)
         { %>
     <div class="mtable">
+        <h3 style="color:white">User table:</h3>
         <%=userList %>
     </div>
+    <div class="mtable orders">
+        <h3 style="color:white">Order table:</h3>
+        <%=orderList %>
+    </div>
+    <form method="POST">
+        <p><label class="lblmsg" for="msg">Enter message to display in website:</label></p>
+        <textarea id="msg" name="msg" rows="4" cols="50"><%=cMsg %></textarea>
+        <input type="submit" name="submit" value="Update message">
+        <input type="submit" class="delete" name="delete" value="Delete current message" />
+    </form>
     <%}
         else
         { %>

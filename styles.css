@@ -69,9 +69,8 @@ p {
 }
 
 .hero {
-    text-align: center;
     padding: 50px 20px;
-    background-color: #333;
+    background-image: url(assets/img/banner.png);
     color: white;
 }
 
@@ -210,7 +209,7 @@ p {
     text-align: center;
     background-color: black;
     color: white;
-    padding: 20px 30px;
+    padding: 20px 30px 45px;
 }
 
 .cta h2 {
@@ -642,19 +641,6 @@ input[type="reset"]:hover {
     transition: max-width 0.3s ease;
 }
 
-.mtable td:nth-child(4):hover, .mtable td:nth-child(5):hover {
-    max-width: 500px;
-    white-space: normal;
-    background-color: #f1f1f1;
-    z-index: 1;
-}
-
-.mtable td:nth-child(4):hover,
-.mtable td:nth-child(5):hover {
-    display: block;
-    position: relative;
-}
-
 .reset-page {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -699,7 +685,7 @@ input[type="reset"]:hover {
     width: 200px;
     padding: 10px;
     text-align: left;
-    z-index: 1000; /* Make sure it's on top */
+    z-index: 1000;
 }
 
 .account-dropdown a {
@@ -808,4 +794,245 @@ input[type="reset"]:hover {
 
 .social-buttons a:hover {
     opacity: 0.8;
+}
+
+.delete {
+    background-color: #f51c0c !important;
+}
+
+.delete:hover {
+    background-color: #ba170b !important;
+}
+
+.lblmsg {
+    color: white;
+    font-weight: bold;
+    margin: 10px 0 5px;
+}
+
+.msg-container {
+    background-color: #ff3639;
+    text-align: center;
+}
+
+.msg-container p {
+    margin: 0 !important;
+}
+
+.login-container {
+    padding: 50px 100px;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+}
+
+.login-container h1 {
+    font-size: 6rem;
+    margin: 0;
+    color: lightgreen;
+}
+
+.login-container p {
+    font-size: 2.5rem;
+    margin-top: 20px;
+    color: white;
+}
+
+.login-container a {
+    font-size: 2rem;
+}
+
+.order-form {
+    max-width: 600px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: #fff3e0;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+
+.order-form h2 {
+    text-align: center;
+}
+
+.order-form label {
+    display: block;
+    margin-top: 10px;
+}
+
+.order-form select, .order-form input[type="text"],
+.order-form input[type="number"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.order-form button {
+    background-color: #ff7043;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    margin-top: 15px;
+    width: auto;
+    font-size: 24px;
+}
+
+.order-form button:hover {
+    background-color: #e64a19;
+}
+
+.delivery-methods {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.delivery-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ccc;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    width: 150px;
+}
+
+.delivery-methods input {
+    display: none;
+}
+
+.option-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.option-image {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.option-content h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.option-content p {
+    font-size: 14px;
+    color: #555;
+}
+
+input:checked + .delivery-option {
+    border-color: #0066cc;
+}
+
+.toppings-list {
+    list-style: disc;
+    padding: 0;
+    gap: 1rem; 
+    margin: 0;
+    background-color: bisque;
+}
+
+.topping {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+    border-bottom: 1px solid #000;
+}
+
+.topping:last-child {
+    border-bottom: none;
+}
+
+.topping:hover {
+    background-color: #f9f9f9;
+}
+
+.topping img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.topping input {
+    margin-right: 10px;
+}
+
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.popup-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.popup-message {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.popup-button {
+    padding: 10px 20px;
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.success .popup-button {
+    background-color: #4caf50;
+}
+
+.error .popup-button {
+    background-color: #d32f2f;
+}
+
+.orders th {
+    background-color: #f7541e;
+    color: white;
 }
