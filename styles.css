@@ -1006,6 +1006,18 @@ input:checked + .delivery-option {
     margin-right: 10px;
 }
 
+@keyframes popupFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
 .popup-overlay {
     display: none;
     position: fixed;
@@ -1017,6 +1029,17 @@ input:checked + .delivery-option {
     z-index: 1000;
     justify-content: center;
     align-items: center;
+    animation: fadeInOverlay 0.3s ease forwards;
+}
+
+@keyframes fadeInOverlay {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .popup-content {
@@ -1026,7 +1049,9 @@ input:checked + .delivery-option {
     max-width: 400px;
     text-align: center;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: popupFadeIn 0.4s ease-out;
 }
+
 
 .popup-title {
     font-size: 24px;
