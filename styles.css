@@ -875,6 +875,10 @@ input[type="reset"]:hover {
     font-size: 16px;
 }
 
+.order-form input[type="number"] {
+    width: 97% !important;
+}
+
 .button-wrapper {
     display: flex;
     justify-content: center;

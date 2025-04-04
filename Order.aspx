@@ -31,6 +31,7 @@
                     <option>Small</option>
                     <option>Medium</option>
                     <option>Large</option>
+                    <option>Extra Large</option>
                 </select>
 
                 <label>Choose Your Toppings</label>
@@ -152,8 +153,10 @@
                     </label>
                 </div>  
 
-                <label for="address">Delivery Address:</label>
-                <input type="text" id="address" name="address"/>
+                <div id="addressField" style="display:none;">
+                    <label for="address">Delivery Address:</label>
+                    <input type="text" id="address" name="address"/>
+                </div>
 
                 <label for="payment">Payment Method:</label>
                 <select name="payment" required>
@@ -174,6 +177,17 @@
             </div>
         </div>
     <script type="text/javascript">
+            document.querySelectorAll('input[name="deliveryMethod"]').forEach((elem) => {
+                elem.addEventListener("change", function (event) {
+                    var addressField = document.getElementById("addressField");
+                    if (event.target.value === "Delivery") {
+                        addressField.style.display = "block";
+                    } else {
+                        addressField.style.display = "none";
+                    }
+                });
+            });
+
             function showPopup(title, message, type) {
                 document.getElementById('popupTitle').innerText = title;
                 document.getElementById('popupMessage').innerText = message;
