@@ -22,8 +22,9 @@
                             inputField.classList.remove("error");
 
                             if (!document.getElementById("username-error").textContent &&
-                                !document.getElementById("email-error").textContent) {
-                                submitButton.disabled = false;
+                                !document.getElementById("email-error").textContent &&
+                                !document.getElementById("password-error").textContent) {
+                                submitButton.disabled = false; 
                             }
                         }
                     });
@@ -40,6 +41,54 @@
                 if (email.length > 0) {
                     checkAvailability("email", email);
                 }
+            });
+
+            document.getElementById("password").addEventListener("blur", function () {
+                let password = this.value.trim();
+                let passwordError = document.getElementById("password-error");
+                let submitButton = document.querySelector("input[type=submit]");
+                let passwordValid = password.length >= 6 && password.length <= 20 &&
+                    /[0-9]/.test(password) && /[!@#$%^&*(),.?":{}|<>]/.test(password) && /[a-zA-Z]/.test(password);
+
+                if (!passwordValid) {
+                    if (password.length < 6 || password.length > 20) {
+                        passwordError.textContent = "Password must be between 6-20 characters.";
+                    }
+                    else if (!/[0-9]/.test(password)) {
+                        passwordError.textContent = "Password must include at least one number.";
+                    }
+                    else if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+                        passwordError.textContent = "Password must include at least one special character.";
+                    }
+                    else if (!/[a-zA-Z]/.test(password)) {
+                        passwordError.textContent = "Password must include either a lowercase or an uppercase letter.";
+                    }
+                    this.classList.add("error");
+                    submitButton.disabled = true;
+                } else {
+                    passwordError.textContent = "";
+                    this.classList.remove("error");
+
+                    if (!document.getElementById("username-error").textContent &&
+                        !document.getElementById("email-error").textContent) {
+                        submitButton.disabled = false;
+                    }
+                }
+            });
+
+            document.querySelector("form").addEventListener("reset", function () {
+                let errorFields = document.querySelectorAll(".error-message");
+                let inputFields = document.querySelectorAll("input");
+
+                errorFields.forEach(function (field) {
+                    field.textContent = "";
+                });
+
+                inputFields.forEach(function (field) {
+                    field.classList.remove("error");
+                });
+
+                document.querySelector("input[type=submit]").disabled = false;
             });
         });
     </script>
@@ -61,6 +110,7 @@
 
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" placeholder="Enter your password" required />
+                <span id="password-error" class="error-message"></span> <br />
 
                 <label for="fname">First name:</label>
                 <input type="text" id="fname" name="fname" placeholder="Enter your first name"  />
