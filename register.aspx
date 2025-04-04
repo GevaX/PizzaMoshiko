@@ -3,6 +3,46 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            function checkAvailability(field, value) {
+                fetch("checkUser.aspx?" + field + "=" + encodeURIComponent(value))
+                    .then(response => response.text())
+                    .then(response => {
+                        let messageField = document.getElementById(field + "-error");
+                        let inputField = document.getElementById(field);
+                        let submitButton = document.querySelector("input[type=submit]");
+
+                        if (response.trim() === "exists") {
+                            messageField.textContent = field.charAt(0).toUpperCase() + field.slice(1) + " already exists.";
+                            inputField.classList.add("error");
+                            submitButton.disabled = true;
+                        } else {
+                            messageField.textContent = "";
+                            inputField.classList.remove("error");
+
+                            if (!document.getElementById("username-error").textContent &&
+                                !document.getElementById("email-error").textContent) {
+                                submitButton.disabled = false;
+                            }
+                        }
+                    });
+            }
+            document.getElementById("username").addEventListener("blur", function () {
+                let username = this.value.trim();
+                if (username.length > 0) {
+                    checkAvailability("username", username);
+                }
+            });
+
+            document.getElementById("email").addEventListener("blur", function () {
+                let email = this.value.trim();
+                if (email.length > 0) {
+                    checkAvailability("email", email);
+                }
+            });
+        });
+    </script>
     <div class="form">
         <div style="margin-right: 300px; margin-left: 100px">
             <h1>Do you love pizza? 🍕</h1>
@@ -13,8 +53,12 @@
             <form action="/submit" method="POST">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" placeholder="Enter your username" required />
-                <label for="email">E-mail adress:</label>
-                <input type="email" id="email" name="email" placeholder="Enter your E-mail adress" required />
+                <span id="username-error" class="error-message"></span> <br />
+
+                <label for="email">E-mail address:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your E-mail address" required />
+                <span id="email-error" class="error-message"></span> <br />
+
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" placeholder="Enter your password" required />
 
