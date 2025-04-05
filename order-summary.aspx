@@ -3,11 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div class="order-summary">
+    <div id="order-summary" class="order-summary">
         <h2>Order Summary</h2>
         <%=order %>
         <h1>Thank you for ordering with us!</h1>
-        <img src="assets/logo inc.png" alt="Pizza Moshiko Logo" height="100px"/>
+        <img src="assets/logo inc.png" alt="Pizza Moshiko Logo" height="100px"/> <br />
+        <a href="order-history.aspx" style="color: green; font-size: 20px;">Order History</a>
     </div>
     <div id="popupOverlay" class="popup-overlay">
          <div id="popupContent" class="popup-content">
@@ -25,11 +26,12 @@
             popupContent.className = 'popup-content ' + type;
             
             document.getElementById('popupOverlay').style.display = 'flex';
+            document.getElementById("order-summary").style.display = 'none';
         }
         
         function closePopup() {
             document.getElementById('popupOverlay').style.display = 'none';
-            
+
             window.location.href = 'Default.aspx';
         }
     </script>

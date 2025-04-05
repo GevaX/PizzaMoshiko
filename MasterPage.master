@@ -54,6 +54,7 @@
                 <!-- Dropdown Menu -->
                 <div id="accountDropdown" class="account-dropdown">
                     <p id="username">Username: <%=Session["userName"] %></p>
+                    <a href="order-history.aspx" style="color: green;">Order History</a>
                     <a href="SignOut.aspx" id="signOutLink" style="color: red;">Sign Out</a>
                 </div>
                 <% } %>
