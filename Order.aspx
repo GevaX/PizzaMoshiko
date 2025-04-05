@@ -202,9 +202,9 @@
                 document.getElementById('popupOverlay').style.display = 'none';
                 
                 if (document.getElementById('popupContent').classList.contains('success')) {
-                    window.location.href = 'Default.aspx';
-                }
+                    window.location.href = 'order-summary.aspx?id=' + encodeURIComponent(<%=orderID%>);
             }
+        }
     </script>
     <% } %>
 </asp:Content>

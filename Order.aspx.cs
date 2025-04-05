@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 
 public partial class Order : System.Web.UI.Page
 {
+    public int orderID;
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Request.Form["submit"] != null)
@@ -24,9 +25,9 @@ public partial class Order : System.Web.UI.Page
             string sql = "INSERT INTO Orders (UserName, PizzaType, Size, ExtraToppings, Quantity, DeliveryMethod, Address, PaymentMethod, OrderDate) " +
              "VALUES('" + userName + "', '" + pizzaType + "', '" + size + "', '" + extraToppings + "', '" + quantity + "', '" + deliveryMethod + "', '" + address + "', '" + paymentMethod + "', '" + orderDate + "')";
             string fileName = "Database.mdf";
-            int rowsAffected = MyAdoHelper.RowsAffected(fileName, sql);
+            orderID = MyAdoHelper.InsertAndGetId(fileName, sql);
 
-            if (rowsAffected > 0)
+            if (orderID > 0)
             {
                 // Show success popup
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "successPopup",

@@ -104,6 +104,18 @@ public class MyAdoHelper
         return rowsA;
     }
 
+    public static int InsertAndGetId(string fileName, string sql)
+    {
+        SqlConnection conn = ConnectToDb(fileName);
+        conn.Open();
+        // Append SELECT SCOPE_IDENTITY() to get the new ID
+        SqlCommand com = new SqlCommand(sql + "; SELECT SCOPE_IDENTITY();", conn);
+        object result = com.ExecuteScalar();
+        conn.Close();
+        return Convert.ToInt32(result);
+    }
+
+
     /// <summary>
     /// הפעולה מקבלת שם קובץ ומשפט לחיפוש ערך - מחזירה אמת אם הערך נמצא ושקר אחרת
     /// </summary>
