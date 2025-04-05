@@ -230,5 +230,79 @@ public class MyAdoHelper
         return printStr;
     }
 
+    public static string printOrderTable(string fileName, string sql)
+    {
+        DataTable dt = ExecuteDataTable(fileName, sql);
+
+        if (dt == null || dt.Rows.Count == 0)
+        {
+            return "No data available.";
+        }
+
+        string[] statusOptions = new string[]
+        {
+        "pending", "confirmed", "in progress", "ready for pickup", "out for delivery",
+        "completed", "canceled", "failed", "delivered"
+        };
+
+        string printStr = @"
+            <script>
+                function updateStatus(orderId, newStatus) {
+                    fetch('updateStatus.aspx?id=' + encodeURIComponent(orderId) + '&status=' + encodeURIComponent(newStatus))
+                        .then(response => response.text())
+                        .then(data => {
+                            if (data.trim() !== 'success') {
+                                alert('Failed to update status: ' + data);
+                            }
+                        })
+                        .catch(error => {
+                            alert('Error: ' + error);
+                        });
+                }
+            </script>";
+
+
+
+        printStr += "<table border='1'>";
+
+        // Add column headers
+        printStr += "<tr>";
+        foreach (DataColumn column in dt.Columns)
+        {
+            printStr += "<th>" + column.ColumnName + "</th>";
+        }
+        printStr += "</tr>";
+
+        // Add data rows
+        foreach (DataRow row in dt.Rows)
+        {
+            printStr += "<tr>";
+            foreach (DataColumn column in dt.Columns)
+            {
+                if (column.ColumnName == "Status")
+                {
+                    string orderId = row["OrderID"].ToString();
+                    string currentStatus = row["Status"].ToString();
+
+                    printStr += "<td><select onchange='updateStatus(" + orderId + ", this.value)'>";
+                    foreach (string status in statusOptions)
+                    {
+                        string selected = (status == currentStatus) ? "selected" : "";
+                        printStr += "<option value='" + status + "' " + selected + ">" + status + "</option>";
+                    }
+                    printStr += "</select></td>";
+                }
+                else
+                {
+                    printStr += "<td>" + row[column].ToString() + "</td>";
+                }
+            }
+            printStr += "</tr>";
+        }
+
+        printStr += "</table>";
+
+        return printStr;
+    }
 
 }

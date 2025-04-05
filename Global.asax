@@ -25,6 +25,7 @@
         // Code that runs when a new session is started
         Session["userName"] = null;
         Session["isManager"] = false;
+        Session["workerName"] = null;
     }
 
     void Session_End(object sender, EventArgs e)
