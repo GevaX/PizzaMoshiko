@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 public partial class order_summary : System.Web.UI.Page
 {
     public string order;
+    public int orderId;
     string sql;
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -19,7 +20,6 @@ public partial class order_summary : System.Web.UI.Page
             return;
         }
 
-        int orderId;
         if (!int.TryParse(Request.QueryString["id"], out orderId))
         {
             ScriptManager.RegisterStartupScript(this, this.GetType(), "failurePopup",
@@ -58,6 +58,7 @@ public partial class order_summary : System.Web.UI.Page
                 order += "<li><strong>Address:</strong> " + row["Address"] + "</li>";
             order += "<li><strong>Payment Method:</strong> " + row["PaymentMethod"] + "</li>";
             order += "<li><strong>Order Date:</strong> " + row["OrderDate"] + "</li>";
+            order += "<br /><li><strong>Order Status:</strong> " + row["Status"] + "</li>";
             order += "</ul>";
             order += "</div>";
         }

@@ -7,6 +7,7 @@
         <h2>Order Summary</h2>
         <%=order %>
         <h1>Thank you for ordering with us!</h1>
+        <button class="delete" style="font-size: 20px;" onclick="cancelOrder(<%=orderId %>)">Ceancel Order</button> <br />
         <img src="assets/logo inc.png" alt="Pizza Moshiko Logo" height="100px"/> <br />
         <a href="order-history.aspx" style="color: green; font-size: 20px;">Order History</a>
     </div>
@@ -18,6 +19,20 @@
          </div>
      </div>
     <script type="text/javascript">
+        function cancelOrder(id) {
+            fetch('updateStatus.aspx?id=' + encodeURIComponent(id) + '&status=canceled')
+            .then(response => response.text())
+            .then(data => {
+                if (data.trim() !== 'success') {
+                    alert('Failed to cancel order: ' + data);
+                }
+            })
+            .catch(error => {
+                alert('Error: ' + error);
+            });
+            showPopup('Success', 'Order canceled scssesfuly', 'success')
+        }
+
         function showPopup(title, message, type) {
             document.getElementById('popupTitle').innerText = title;
             document.getElementById('popupMessage').innerText = message;
@@ -26,7 +41,9 @@
             popupContent.className = 'popup-content ' + type;
             
             document.getElementById('popupOverlay').style.display = 'flex';
-            document.getElementById("order-summary").style.display = 'none';
+            if (type == 'error') {
+                document.getElementById("order-summary").style.display = 'none';
+            }
         }
         
         function closePopup() {

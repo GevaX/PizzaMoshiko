@@ -833,6 +833,8 @@ input[type="reset"]:hover {
 .msg-container {
     background-color: #ff3639;
     text-align: center;
+    position: sticky;
+    top: 0;
 }
 
 .msg-container p {
