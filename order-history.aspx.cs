@@ -13,14 +13,38 @@ public partial class order_history : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         string fileName = "Database.mdf";
-        sql = "SELECT * FROM Orders WHERE UserName = '" + Session["userName"] + "'";
 
-        if (!IsPostBack)
+        if (IsPostBack)
         {
+            foreach (string key in Request.Form.Keys)
+            {
+                if (key.StartsWith("reorder_"))
+                {
+                    string id = Request.Form[key];
+                    int orderId = int.Parse(id);
+                    DateTime orderDate = DateTime.Now;
+
+                    sql = "INSERT INTO Orders (UserName, PizzaType, Size, ExtraToppings, Quantity, DeliveryMethod, Address, PaymentMethod, OrderDate) " +
+                         "SELECT UserName, PizzaType, Size, ExtraToppings, Quantity, DeliveryMethod, Address, PaymentMethod, '" + orderDate + "' " +
+                         "FROM Orders WHERE OrderID = " + orderId + ";";
+
+                    int newOrderId = MyAdoHelper.InsertAndGetId(fileName, sql);
+
+                    Response.Redirect("order-summary.aspx?id=" + newOrderId);
+
+                    return;
+                }
+            }
+        }
+
+        if (Session["userName"] != null)
+        {
+            sql = "SELECT * FROM Orders WHERE UserName = '" + Session["userName"] + "'";
             DataTable dt = MyAdoHelper.ExecuteDataTable(fileName, sql);
 
             foreach (DataRow row in dt.Rows)
             {
+                string orderId = row["OrderID"].ToString();
                 orders += "<div class='order-item'>";
                 orders += "<h3>Order ID: " + row["OrderID"] + "</h3>";
                 orders += "<ul>";
@@ -38,28 +62,12 @@ public partial class order_history : System.Web.UI.Page
                 orders += "<li><strong>Order Date:</strong> " + row["OrderDate"] + "</li>";
                 orders += "</ul>";
 
-                orders += "<form method='post'>";
-                orders += "<input type='submit' class='reorder' name='reorder' value='Reorder this order' />";
-                orders += "<input type='hidden' name='id' value='" + row["OrderID"] + "' />";
-                orders += "</form>";
+                orders += "<button type='submit' class='reorder' name='reorder_" + orderId + "' id='reorder_" + orderId +
+                          "' value='" + orderId + "'>Reorder this order</button>";
 
                 orders += "</div>";
             }
         }
-
-        if (Request.Form["reorder"] != null)
-        {
-            string id = Request.Form["id"];
-            int orderId = int.Parse(id);
-
-            DateTime orderDate = DateTime.Now;
-
-            sql = "SELECT * FROM Orders WHERE OrderID = " + orderId + ";" +
-                 "INSERT INTO Orders (UserName, PizzaType, Size, ExtraToppings, Quantity, DeliveryMethod, Address, PaymentMethod, OrderDate) " +
-                 "SELECT UserName, PizzaType, Size, ExtraToppings, Quantity, DeliveryMethod, Address, PaymentMethod, '" + orderDate + "' " +
-                 "FROM Orders WHERE OrderID = " + orderId + ";";
-
-            MyAdoHelper.DoQuery(fileName, sql);
-        }
+        
     }
 }

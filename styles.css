@@ -1188,3 +1188,14 @@ input:checked + .delivery-option {
     color: #333;
     text-align: center;
 }
+
+.reorder {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
