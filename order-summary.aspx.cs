@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 public partial class order_summary : System.Web.UI.Page
 {
     public string order;
+    public string status;
     public int orderId;
     string sql;
     protected void Page_Load(object sender, EventArgs e)
@@ -42,6 +43,7 @@ public partial class order_summary : System.Web.UI.Page
         DataTable dt = MyAdoHelper.ExecuteDataTable(fileName, sql);
         foreach (DataRow row in dt.Rows)
         {
+            status = (string)row["Status"];
             order += "<div class='order-item'>";
             order += "<h3>Order ID: " + row["OrderID"] + "</h3>";
             order += "<ul>";

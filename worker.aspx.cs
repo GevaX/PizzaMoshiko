@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 public partial class worker : System.Web.UI.Page
 {
     public string orderList = "";
+    public string pastOrderList = "";
     string fileName = "Database.mdf";
     string sql;
     protected void Page_Load(object sender, EventArgs e)
@@ -28,11 +29,17 @@ public partial class worker : System.Web.UI.Page
             }
             else
             {
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Login failed. Please try again.');", true);
+                ViewState["LoginFailed"] = true;
             }
         }
 
-        sql = "SELECT * FROM Orders";
-        orderList = MyAdoHelper.printOrderTable(fileName, sql);
+        if (Session["workerName"] != null) // Fetch data only if authorized
+        {
+            sql = "SELECT * FROM Orders WHERE Status NOT IN ('failed', 'completed', 'canceled');";
+            orderList = MyAdoHelper.printOrderTable(fileName, sql);
+
+            sql = "SELECT * FROM Orders WHERE Status IN ('failed', 'completed', 'canceled');";
+            pastOrderList = MyAdoHelper.printOrderTable(fileName, sql);
+        }
     }
 }

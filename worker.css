@@ -15,6 +15,10 @@ input[type="text"], input[type="password"] {
     box-sizing: border-box;
 }
 
+a, a:visited {
+    color: blue;
+}
+
 input[type="submit"] {
     padding: 10px 15px;
     border: none;
@@ -67,6 +71,10 @@ input[type="submit"]:hover {
 
 h1 {
     color: white;
+}
+
+.hidden {
+    display: none;
 }
 
 .mtable table {

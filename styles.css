@@ -1079,6 +1079,10 @@ input:checked + .delivery-option {
     background-color: #4caf50;
 }
 
+.delivery .popup-button:not(.contact) {
+    background-color: #4caf50;
+}
+
 .error .popup-button {
     background-color: #d32f2f;
 }
