@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="gallery-page">
         <h1 class="heading">Pizza Gallery</h1>
-        <p class="description">Discover our mouth-watering creations, each crafted to perfection.</p>
+        <p class="description">Discover our delicious creations, each crafted to perfection.</p>
 
         <div class="gallery-grid">
             <div class="gallery-item">

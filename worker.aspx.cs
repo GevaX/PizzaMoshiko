@@ -39,7 +39,7 @@ public partial class worker : System.Web.UI.Page
             orderList = MyAdoHelper.printOrderTable(fileName, sql);
 
             sql = "SELECT * FROM Orders WHERE Status IN ('failed', 'completed', 'canceled');";
-            pastOrderList = MyAdoHelper.printOrderTable(fileName, sql);
+            pastOrderList = MyAdoHelper.printDataTable(fileName, sql);
         }
     }
 }
