@@ -60,7 +60,7 @@
                 <% } %>
             </div>
         </nav>
-        <% if (Application["msg"] != "") {%>
+        <% if (msg != "") {%>
         <div class="msg-container">
             <p>Message from Moshiko: "<%=msg %>"</p>
         </div>

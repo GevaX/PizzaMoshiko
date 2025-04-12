@@ -23,7 +23,9 @@
 
                             if (!document.getElementById("username-error").textContent &&
                                 !document.getElementById("email-error").textContent &&
-                                !document.getElementById("password-error").textContent) {
+                                !document.getElementById("password-error").textContent &&
+                                !document.getElementById("fname-error").textContent &&
+                                !document.getElementById("lname-error").textContent) {
                                 submitButton.disabled = false; 
                             }
                         }
@@ -70,11 +72,51 @@
                     this.classList.remove("error");
 
                     if (!document.getElementById("username-error").textContent &&
-                        !document.getElementById("email-error").textContent) {
+                        !document.getElementById("email-error").textContent &&
+                        !document.getElementById("fname-error").textContent &&
+                        !document.getElementById("lname-error").textContent) {
                         submitButton.disabled = false;
                     }
                 }
             });
+
+            document.getElementById("fname").addEventListener("blur", function () {
+                let fname = this.value.trim();
+                if (fname.length > 0) {
+                    validateNameField("fname", fname, "First Name");
+                }
+            });
+
+            document.getElementById("lname").addEventListener("blur", function () {
+                let lname = this.value.trim();
+                if (lname.length > 0) {
+                    validateNameField("lname", lname, "Last Name");
+                }
+            });
+
+            function validateNameField(field, value, label) {
+                let messageField = document.getElementById(field + "-error");
+                let inputField = document.getElementById(field);
+                let submitButton = document.querySelector("input[type=submit]");
+                const validName = /^[A-Za-z\s'-]+$/.test(value); // Allows letters, spaces, apostrophes, hyphens
+
+                if (!validName && value.length > 0) {
+                    messageField.textContent = label + " must not contain numbers or special characters.";
+                    inputField.classList.add("error");
+                    submitButton.disabled = true;
+                } else {
+                    messageField.textContent = "";
+                    inputField.classList.remove("error");
+
+                    if (!document.getElementById("username-error").textContent &&
+                        !document.getElementById("email-error").textContent &&
+                        !document.getElementById("password-error").textContent &&
+                        !document.getElementById("fname-error")?.textContent &&
+                        !document.getElementById("lname-error")?.textContent) {
+                        submitButton.disabled = false;
+                    }
+                }
+            }
 
             document.querySelector("form").addEventListener("reset", function () {
                 let errorFields = document.querySelectorAll(".error-message");
@@ -114,8 +156,11 @@
 
                 <label for="fname">First name:</label>
                 <input type="text" id="fname" name="fname" placeholder="Enter your first name"  />
+                <span id="fname-error" class="error-message"></span> <br />
+
                 <label for="lname">Last name:</label>
                 <input type="text" id="lname" name="lname" placeholder="Enter your last name"  />
+                <span id="lname-error" class="error-message"></span> <br />
 
                 <label>Gender</label>
                 <div class="gender">
