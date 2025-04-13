@@ -42,6 +42,7 @@ public partial class register : System.Web.UI.Page
                 if (rowsAffected > 0)
                 {
                     Session["userName"] = username;
+                    Session["userFullName"] = firstName + " " + lastName;
                     // Show success popup
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "successPopup",
                         "showPopup('Success', 'Your registered successfully!', 'success');", true);
@@ -57,9 +58,10 @@ public partial class register : System.Web.UI.Page
             {
                 Console.WriteLine("Error: " + ex.Message);
 
+                string safeMessage = HttpUtility.JavaScriptStringEncode(ex.Message);
                 // Show a failure popup with the error message
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "failurePopup",
-                    "showPopup('Error', 'An unexpected error occurred: " + ex.Message + "', 'error');", true);
+                    "showPopup('Error', 'An unexpected error occurred: " + safeMessage + "', 'error');", true);
             }
         }
     }

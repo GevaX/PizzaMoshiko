@@ -531,7 +531,7 @@ input[type="submit"], input[type="reset"] {
 }
 
 /* If unresolved issue in registration form */
-input[type="submit"]:disabled {
+.disabled {
     background-color: #888; 
     color: white;
     cursor: not-allowed;
@@ -547,7 +547,15 @@ span.error-message {
 
 input.error {
     background-color: #fff3cd;
-    border: 2px solid #d97706;
+    border: 3px solid #d97706;
+}
+
+input.success {
+    border: 4px solid green;
+}
+
+input.perror {
+    border: 4px solid red;
 }
 
 input[type="reset"] {
@@ -1198,4 +1206,40 @@ input:checked + .delivery-option {
     font-size: 16px;
     cursor: pointer;
     margin-top: 10px;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper input[type="password"],
+.input-wrapper input[type="text"] {
+    padding-right: 40px;
+}
+
+.eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    opacity: 0.65;
+}
+
+.eye-icon i {
+    color: black;
+}
+
+.eye-icon:hover {
+    opacity: 1;
+}
+
+.required::after {
+    content: " *";
+    color: black;
+    font-weight: 900;
+    font-size: calc(1em + 3px);
+    text-shadow: 0 0 0.5px black, 0 0 0.5px black;
 }

@@ -13,6 +13,7 @@ public partial class Order : System.Web.UI.Page
         if (Request.Form["submit"] != null)
         {
             string userName = Session["userName"].ToString();
+            string fullName = Session["userFullName"].ToString();
             string pizzaType = Request.Form["pizza"];
             string size = Request.Form["size"];
             string extraToppings = Request.Form["toppings"];
@@ -22,8 +23,8 @@ public partial class Order : System.Web.UI.Page
             string paymentMethod = Request.Form["payment"];
             DateTime orderDate = DateTime.Now;
 
-            string sql = "INSERT INTO Orders (UserName, PizzaType, Size, ExtraToppings, Quantity, DeliveryMethod, Address, PaymentMethod, OrderDate) " +
-             "VALUES('" + userName + "', '" + pizzaType + "', '" + size + "', '" + extraToppings + "', '" + quantity + "', '" + deliveryMethod + "', '" + address + "', '" + paymentMethod + "', '" + orderDate + "')";
+            string sql = "INSERT INTO Orders (UserName, FullName, PizzaType, Size, ExtraToppings, Quantity, DeliveryMethod, Address, PaymentMethod, OrderDate) " +
+             "VALUES('" + userName + "', '" + fullName + "', '" + pizzaType + "', '" + size + "', '" + extraToppings + "', '" + quantity + "', '" + deliveryMethod + "', '" + address + "', '" + paymentMethod + "', '" + orderDate + "')";
             string fileName = "Database.mdf";
             orderID = MyAdoHelper.InsertAndGetId(fileName, sql);
 

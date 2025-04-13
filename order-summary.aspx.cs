@@ -47,7 +47,7 @@ public partial class order_summary : System.Web.UI.Page
             order += "<div class='order-item'>";
             order += "<h3>Order ID: " + row["OrderID"] + "</h3>";
             order += "<ul>";
-            order += "<li><strong>User Name:</strong> " + row["UserName"] + "</li>";
+            order += "<li><strong>Name:</strong> " + row["FullName"] + "</li>";
             order += "<li><strong>Pizza Type:</strong> " + row["PizzaType"] + "</li>";
             order += "<li><strong>Size:</strong> " + row["Size"] + "</li>";
             if((string)row["ExtraToppings"] != "")

@@ -8,6 +8,7 @@
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="styles.css" />
     <link href="https://fonts.googleapis.com/css2?family=Heebo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
     <script>
@@ -23,7 +24,7 @@
     </script>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" novalidate>
     <div>
         <nav class="navbar">
             <div class="navbar-container">

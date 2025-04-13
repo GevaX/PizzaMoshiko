@@ -24,8 +24,8 @@ public partial class order_history : System.Web.UI.Page
                     int orderId = int.Parse(id);
                     DateTime orderDate = DateTime.Now;
 
-                    sql = "INSERT INTO Orders (UserName, PizzaType, Size, ExtraToppings, Quantity, DeliveryMethod, Address, PaymentMethod, OrderDate) " +
-                         "SELECT UserName, PizzaType, Size, ExtraToppings, Quantity, DeliveryMethod, Address, PaymentMethod, '" + orderDate + "' " +
+                    sql = "INSERT INTO Orders (UserName, FullName, PizzaType, Size, ExtraToppings, Quantity, DeliveryMethod, Address, PaymentMethod, OrderDate) " +
+                         "SELECT UserName, FullName, PizzaType, Size, ExtraToppings, Quantity, DeliveryMethod, Address, PaymentMethod, '" + orderDate + "' " +
                          "FROM Orders WHERE OrderID = " + orderId + ";";
 
                     int newOrderId = MyAdoHelper.InsertAndGetId(fileName, sql);
