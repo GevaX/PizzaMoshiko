@@ -101,9 +101,9 @@
                 const confirmPassword = document.getElementById("confirmPassword");
                 const errorMessage = document.getElementById("confirmPassword-error");
 
-                if (password.classList.contains("error")) return;
+                confirmPassword.classList.remove("error");
 
-                if (password.value.trim() === "" || confirmPassword.value.trim() === "") {
+                if (password.value.trim() === "" || confirmPassword.value.trim() === "" || password.classList.contains("error")) {
                     // Don't validate if one of them is empty
                     password.classList.remove("success", "perror");
                     confirmPassword.classList.remove("success", "perror");
@@ -204,6 +204,7 @@
 
             document.getElementById("password").addEventListener("input", function () {
                 validatePassword(this.value);
+                validatePasswordMatch();
             });
 
             document.getElementById("confirmPassword").addEventListener("input", validatePasswordMatch);
@@ -339,7 +340,7 @@
                 <input type="submit" name="submit" value="Submit"> <br />
                 <input type="reset" value="Reset">
             </form>
-            <p>Already have an account? <a href="login.aspx">Sign In</a></p> 
+            <p>Already have an account? <a class="link" href="login.aspx">Sign In</a></p> 
         </div>
     </div>
     <div id="popupOverlay" class="popup-overlay">

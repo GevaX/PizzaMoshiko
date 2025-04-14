@@ -274,8 +274,12 @@ p {
     background-color: #1e82e3;
 }
 
-.git, .git:visited {
+.link, .link:visited {
     color: blue;
+}
+
+.link:active {
+    color: red;
 }
 
 .about-slogan {

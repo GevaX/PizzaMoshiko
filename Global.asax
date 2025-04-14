@@ -24,7 +24,6 @@
     {
         // Code that runs when a new session is started
         Session["userName"] = null;
-        Session["userFullName"] = null;
         Session["isManager"] = false;
         Session["workerName"] = null;
     }

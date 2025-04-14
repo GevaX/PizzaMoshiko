@@ -24,7 +24,7 @@
     </script>
 </head>
 <body>
-    <form id="form1" runat="server" novalidate>
+    <form id="form1" runat="server">
     <div>
         <nav class="navbar">
             <div class="navbar-container">
@@ -75,7 +75,7 @@
                 <a href="/contact.aspx" style="color: #a8a8a8; text-decoration: none;">Contact</a> |
                 <a href="/assets/docs/Terms of Service.pdf" target="_blank" style="color: #a8a8a8; text-decoration: none;">Terms of service</a>
             </p>
-            <p>This website is open source, <a class="git" href="https://github.com/GevaX/PizzaMoshiko" target="_blank">View It On Github</a>🦅</p>
+            <p>This website is open source, <a class="link" href="https://github.com/GevaX/PizzaMoshiko" target="_blank">View It On Github</a>🦅</p>
         </footer>
     </div>
     </form>

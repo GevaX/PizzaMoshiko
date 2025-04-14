@@ -26,8 +26,6 @@
                 const value = field.value.trim();
                 const messageField = document.getElementById(field.id + "-error");
 
-                if (field.id === "confirmPassword" && document.getElementById("password").value.trim() === "") return;
-
                 if (value === "") {
                     messageField.textContent = "This field is required.";
                     field.classList.add("error");
@@ -76,8 +74,8 @@
 
                     <input type="submit" name="submit" value="Log in">
                 </form>
-            <p>Dont have an account? <a href="register.aspx">Sign Up</a></p> 
-            <p>Forgot password? <a href="reset.aspx">Reset it</a></p> 
+            <p>Dont have an account? <a class="link" href="register.aspx">Sign Up</a></p> 
+            <p>Forgot password? <a class="link" href="reset.aspx">Reset it</a></p> 
             <%=msg %>
         </div>
     </div>
