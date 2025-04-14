@@ -156,6 +156,14 @@
                     messageField.textContent = "This field is required.";
                     field.classList.add("error");
                 }
+                else {
+                    if (messageField.textContent === "")
+                        field.classList.remove("error");
+                    if (field.id === "age") {
+                        messageField.textContent = "";
+                        field.classList.remove("error")
+                    }
+                }
 
                 toggleSubmitButton();
             }
@@ -204,14 +212,14 @@
                 e.preventDefault();
             });
 
-            document.getElementById("fname").addEventListener("blur", function () {
+            document.getElementById("fname").addEventListener("input", function () {
                 let fname = this.value.trim();
                 if (fname.length > 0) {
                     validateNameField("fname", fname, "First Name");
                 }
             });
 
-            document.getElementById("lname").addEventListener("blur", function () {
+            document.getElementById("lname").addEventListener("input", function () {
                 let lname = this.value.trim();
                 if (lname.length > 0) {
                     validateNameField("lname", lname, "Last Name");
@@ -221,7 +229,6 @@
             document.querySelectorAll("input[required]").forEach(function (input) {
                 input.addEventListener("blur", function () {
                     validateRequiredField(this);
-                    toggleSubmitButton();
                 });
             });
 

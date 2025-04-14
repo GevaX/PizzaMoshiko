@@ -42,7 +42,6 @@ public partial class register : System.Web.UI.Page
                 if (rowsAffected > 0)
                 {
                     Session["userName"] = username;
-                    Session["userFullName"] = firstName + " " + lastName;
                     // Show success popup
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "successPopup",
                         "showPopup('Success', 'Your registered successfully!', 'success');", true);
