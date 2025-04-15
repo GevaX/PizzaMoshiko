@@ -11,7 +11,9 @@ public partial class MasterPage : System.Web.UI.MasterPage
     protected void Page_Load(object sender, EventArgs e)
     {
         msg = (string)Application["msg"];
-        if (Request.Url.AbsolutePath.Contains("register.aspx") || Request.Url.AbsolutePath.Contains("login.aspx"))
+
+        string path = Request.Url.AbsolutePath.ToLower();
+        if (path.Contains("register.aspx") || path.Contains("login.aspx"))
         {
             form1.Attributes["novalidate"] = "novalidate";
         }

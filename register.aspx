@@ -19,8 +19,9 @@
                     .some(msg => msg.textContent.trim() !== "");
                 let hasEmptyRequired = Array.from(document.querySelectorAll("input[required]"))
                     .some(field => field.value.trim() === "");
+                let tosChecked = document.getElementById("tos").checked;
 
-                return hasEmptyRequired || hasErrorMessages;
+                return hasEmptyRequired || hasErrorMessages || !tosChecked;
             }
 
             function toggleSubmitButton() {
@@ -147,11 +148,25 @@
 
             // Check if required inputs entered
             function validateRequiredField(field) {
-                const value = field.value.trim();
                 const messageField = document.getElementById(field.id + "-error");
 
                 if (field.id === "confirmPassword" && document.getElementById("password").value.trim() === "") return;
 
+                // Handle checkbox
+                if (field.type === "checkbox") {
+                    if (!field.checked) {
+                        messageField.textContent = "You must agree to the Terms of Service.";
+                        field.classList.add("error");
+                    } else {
+                        messageField.textContent = "";
+                        field.classList.remove("error");
+                    }
+                    toggleSubmitButton();
+                    return;
+                }
+
+                // Handle regular inputs
+                const value = field.value.trim();
                 if (value === "") {
                     messageField.textContent = "This field is required.";
                     field.classList.add("error");
@@ -231,6 +246,10 @@
                 input.addEventListener("blur", function () {
                     validateRequiredField(this);
                 });
+            });
+
+            document.getElementById("tos").addEventListener("change", function () {
+                validateRequiredField(this);
             });
 
             toggleSubmitButton();
@@ -336,7 +355,10 @@
                   <option value="medium">Medium</option>
                   <option value="spicy">Spicy</option>
                   <option value="fire">Fire in My Mouth!</option>
-                </select> <br />
+                </select> <br /> <br />
+                <input type="checkbox" id="tos" name="tos" value="Tos" required>
+                <label for="tos">I agree to the <a href="/assets/docs/Terms of Service.pdf" target="_blank" class="link">Terms of service</a></label> <br />
+                <span id="tos-error" class="error-message"></span> <br />
                 <input type="submit" name="submit" value="Submit"> <br />
                 <input type="reset" value="Reset">
             </form>
